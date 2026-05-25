@@ -11,7 +11,6 @@ const nextConfig: NextConfig = {
     "bcryptjs",
     "jsonwebtoken",
     "groq-sdk",
-    "multer",
   ],
 };
 

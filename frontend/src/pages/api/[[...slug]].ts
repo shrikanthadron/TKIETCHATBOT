@@ -8,6 +8,8 @@ export const config = {
     bodyParser: false,
     externalResolver: true,
   },
+  // Vercel serverless max duration (seconds) for Express API handler
+  maxDuration: 60,
 };
 
 const handler = serverless(app, {

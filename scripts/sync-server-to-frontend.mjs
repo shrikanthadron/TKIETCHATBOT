@@ -21,3 +21,4 @@ function copyDir(from, to) {
 
 copyDir(src, dest);
 console.log("Synced backend/ -> frontend/server/");
+console.log("Run: cd frontend/server && npm install");

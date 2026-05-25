@@ -69,7 +69,13 @@ export default function LoginPage() {
           </button>
         </form>
 
-        <p className="text-center text-sm mt-6 text-[var(--text-secondary)]">
+        <p className="text-center text-sm mt-4 text-[var(--text-secondary)]">
+          <Link href="/inquiry/public" className="text-emerald-600 dark:text-emerald-400 font-medium">
+            TKIET Warananagar — College Inquiry Chatbot
+          </Link>
+        </p>
+
+        <p className="text-center text-sm mt-4 text-[var(--text-secondary)]">
           No account? <Link href="/register" className="text-brand-500 font-medium">Sign up</Link>
         </p>
       </motion.div>

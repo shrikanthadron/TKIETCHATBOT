@@ -8,6 +8,7 @@
     "dev:frontend": "npm run dev --prefix frontend",
     "dev:backend": "npm run dev --prefix backend",
     "build": "npm run build --prefix frontend && npm run build --prefix backend",
+    "sync:server": "node scripts/sync-server-to-frontend.mjs && node frontend/scripts/prepare-api.mjs",
     "db:push": "npm run db:push --prefix backend",
     "db:seed": "npm run db:seed --prefix backend",
     "postinstall": "npm install --prefix frontend && npm install --prefix backend"

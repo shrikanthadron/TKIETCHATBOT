@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Brain, Calendar, BarChart3, Menu } from "lucide-react";
+import { LayoutDashboard, Brain, Calendar, BarChart3, GraduationCap, Menu } from "lucide-react";
 import clsx from "clsx";
 
 const links = [
@@ -10,6 +10,7 @@ const links = [
   { href: "/quizzes", icon: Brain },
   { href: "/planner", icon: Calendar },
   { href: "/analytics", icon: BarChart3 },
+  { href: "/inquiry", icon: GraduationCap },
 ];
 
 export function MobileNav() {

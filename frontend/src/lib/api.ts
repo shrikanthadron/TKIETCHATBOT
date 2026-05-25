@@ -1,4 +1,10 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000/api";
+function resolveApiUrl(): string {
+  if (process.env.NEXT_PUBLIC_API_URL) return process.env.NEXT_PUBLIC_API_URL;
+  if (process.env.NODE_ENV === "production") return "/api";
+  return "http://localhost:4000/api";
+}
+
+const API_URL = resolveApiUrl();
 
 export function getToken(): string | null {
   if (typeof window === "undefined") return null;
@@ -52,6 +58,21 @@ export const authApi = {
       body: JSON.stringify(data),
     }),
   me: () => api<User>("/auth/me"),
+};
+
+export interface ChatMessage {
+  role: "user" | "assistant";
+  content: string;
+}
+
+export const chatApi = {
+  status: () =>
+    api<{ aiEnabled: boolean; suggestedQuestions: string[]; model: string }>("/chat/tkiet/status"),
+  send: (messages: ChatMessage[]) =>
+    api<{ reply: string; model: string }>("/chat/tkiet", {
+      method: "POST",
+      body: JSON.stringify({ messages }),
+    }),
 };
 
 export interface User {

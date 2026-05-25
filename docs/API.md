@@ -102,3 +102,21 @@ Adaptive daily study plan.
 
 ### GET /notifications
 ### PATCH /notifications/:id/read
+
+## TKIET College Inquiry Chat (public)
+
+### GET /chat/tkiet/status
+Returns `aiEnabled`, `suggestedQuestions`, institute info.
+
+### POST /chat/tkiet
+No authentication required.
+
+```json
+{
+  "messages": [
+    { "role": "user", "content": "What departments does TKIET offer?" }
+  ]
+}
+```
+
+Response: `{ "reply": "...", "model": "llama-3.3-70b-versatile" }`

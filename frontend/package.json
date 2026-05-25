@@ -3,12 +3,26 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/prepare-api.mjs",
+    "prebuild": "node scripts/prepare-api.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "install:vercel": "npm install && cd server && npm install && npx prisma generate",
+    "build:vercel": "node scripts/prepare-api.mjs && cd server && npx prisma generate && npx prisma db push && cd .. && next build"
   },
   "dependencies": {
+    "@prisma/client": "^6.8.2",
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "groq-sdk": "^0.21.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.2",
+    "serverless-http": "^3.2.0",
+    "zod": "^3.25.28",
     "framer-motion": "^12.12.1",
     "lucide-react": "^0.511.0",
     "next": "^15.3.2",
@@ -18,7 +32,12 @@
     "clsx": "^2.1.1"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.18",
+    "@types/express": "^5.0.2",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/multer": "^1.4.12",
     "@types/node": "^22.15.21",
+    "prisma": "^6.8.2",
     "@types/react": "^19.1.4",
     "@types/react-dom": "^19.1.5",
     "autoprefixer": "^10.4.21",

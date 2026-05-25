@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   LayoutDashboard, Brain, Calendar, BarChart3, BookOpen,
-  Settings, Shield, LogOut, Moon, Sun, Zap, FileText, Trophy,
+  Settings, Shield, LogOut, Moon, Sun, Zap, FileText, Trophy, GraduationCap,
 } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import { useTheme } from "@/context/ThemeContext";
@@ -18,6 +18,7 @@ const studentLinks = [
   { href: "/notes", label: "Notes", icon: FileText },
   { href: "/subjects", label: "Subjects", icon: BookOpen },
   { href: "/achievements", label: "Achievements", icon: Trophy },
+  { href: "/inquiry", label: "TKIET Inquiry", icon: GraduationCap },
 ];
 
 export function Sidebar() {

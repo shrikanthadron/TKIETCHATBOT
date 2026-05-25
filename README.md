@@ -7,6 +7,7 @@ A full-stack education platform with adaptive AI recommendations, intelligent qu
 ## Features
 
 - **Personalized Learning** — AI adaptive recommendations, dynamic difficulty, multi-subject paths
+- **TKIET Inquiry Chatbot** — Groq-powered college assistant for TKIET Warananagar (admissions, departments, placements)
 - **Quiz Engine** — MCQ, T/F, fill-blank, short answer; timer; instant feedback; Groq generation
 - **Study Planner** — AI timetable, daily/weekly/monthly views, Pomodoro, drag-and-drop events
 - **Analytics** — Accuracy trends, topic radar, study time, exam readiness prediction, leaderboard
@@ -57,7 +58,7 @@ Edit `backend/.env`:
 ```env
 DATABASE_URL="postgresql://learniq:learniq_secret@localhost:5432/learniq"
 JWT_SECRET="your-secret-key"
-GROQ_API_KEY="gsk_..."   # Optional — uses fallback questions without it
+GROQ_API_KEY=""   # Optional — uses fallback questions without it
 ```
 
 ### 3. Start PostgreSQL & seed database
@@ -130,12 +131,31 @@ cd frontend && npm run build && npm start
 - Framer Motion page transitions
 - Recharts interactive dashboards
 
+## TKIET College Inquiry Chatbot
+
+AI assistant for **Tatyasaheb Kore Institute of Engineering and Technology (TKIET), Warananagar** — admissions, departments, placements, campus, and contacts.
+
+| URL | Access |
+|-----|--------|
+| `/inquiry/public` | Public (no login) |
+| `/inquiry` | Logged-in students |
+
+**API:** `POST /api/chat/tkiet` · `GET /api/chat/tkiet/status`  
+**Model:** Groq `llama-3.3-70b-versatile` (requires `GROQ_API_KEY`)
+
 ## Optional Enhancements
 
-- Set `GROQ_API_KEY` for live AI quiz generation and summaries
-- AI chatbot tutor endpoint (extend `services/ai.ts`)
+- Set `GROQ_API_KEY` for live AI quiz generation, summaries, and TKIET chatbot
 - PDF export via browser print or `jspdf`
 - OAuth (Google) — add Passport.js strategy
+
+## Deploy on Vercel + Neon
+
+See **[DEPLOY-VERCEL.md](./DEPLOY-VERCEL.md)** for step-by-step deployment with Neon PostgreSQL.
+
+- Vercel **Root Directory:** `frontend`
+- API runs on same domain at `/api/*`
+- Set `DATABASE_URL`, `DIRECT_URL`, `GROQ_API_KEY`, `JWT_SECRET`
 
 ## License
 
